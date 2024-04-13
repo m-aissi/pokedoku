@@ -7,6 +7,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import {MatGridListModule} from '@angular/material/grid-list';
+import { MatCardModule } from '@angular/material/card';
+import {MatTabsModule} from '@angular/material/tabs';
 
 @NgModule({
   declarations: [
@@ -17,7 +19,9 @@ import {MatGridListModule} from '@angular/material/grid-list';
     AppRoutingModule,
     MatButtonModule,
     MatCheckboxModule,
-    MatGridListModule
+    MatGridListModule,
+    MatCardModule,
+    MatTabsModule
   ],
   providers: [
     provideAnimationsAsync()
