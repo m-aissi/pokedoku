@@ -1,35 +1,71 @@
 <mat-tab-group>
   <mat-tab label="Today's Pokedoku">
-    <div class="container text-center">
-      <div class="row">
-        <div class="col">Column</div>
-        <div class="col">Column</div>
-        <div class="col">Column</div>
-        <div class="col">Column</div>
+    <div class="container align-items-center">
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-5 justify-content-center">
+        <div class="col w-auto">Column</div>
+        <div class="col w-auto">        <mat-card class="w-100 h-100 bg-secondary">
+          <mat-card-content>Simple card</mat-card-content>
+        </mat-card></div>
+        <div class="col w-auto">        <mat-card class="w-100 h-100 bg-secondary">
+          <mat-card-content>Simple card</mat-card-content>
+        </mat-card></div>
+        <div class="col w-auto">        <mat-card class="w-100 h-100 bg-secondary">
+          <mat-card-content>Simple card</mat-card-content>
+        </mat-card></div>
+        <div class="col w-auto">Column</div>
       </div>
-      <div class="row">
-        <div class="col">Column</div>
-        <div class="col">Column</div>
-        <div class="col">Column</div>
-        <div class="col">Column</div>
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-5 justify-content-center">
+        <div class="col w-auto">Column</div>
+        <div class="col w-auto">        <mat-card class="w-100 h-100 bg-secondary">
+          <mat-card-content>Simple card</mat-card-content>
+        </mat-card></div>
+        <div class="col w-auto">        <mat-card class="w-100 h-100 bg-secondary">
+          <mat-card-content>Simple card</mat-card-content>
+        </mat-card></div>
+        <div class="col w-auto">        <mat-card class="w-100 h-100 bg-secondary">
+          <mat-card-content>Simple card</mat-card-content>
+        </mat-card></div>
+        <div class="col w-auto">Column</div>
       </div>
-      <div class="row">
-        <div class="col">Column</div>
-        <div class="col">Column</div>
-        <div class="col">Column</div>
-        <div class="col">Column</div>
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-5 justify-content-center">
+        <div class="col w-auto">Column</div>
+        <div class="col w-auto">      
+              <div class=" d-flex align-items-end position-relative cardPreviewImage" style="background-image: url('https://img.pokemondb.net/sprites/heartgold-soulsilver/normal/jirachi.png');" >
+                    <p> test11 </p>
+                   <img src="https://img.pokemondb.net/sprites/black-white/anim/normal/wailord.gif" alt="Jirachi">
+            </div>
       </div>
-      <div class="row">
-        <div class="col">Column</div>
-        <div class="col">Column</div>
-        <div class="col">Column</div>
-        <div class="col">Column</div>
+        <div class="col w-auto"> 
+                 <mat-card class="w-100 h-100 bg-secondary">
+          <mat-card-content>Simple card</mat-card-content>
+        </mat-card></div>
+        <div class="col w-auto">        <mat-card class="w-100 h-100 bg-secondary">
+          <mat-card-content>Simple card</mat-card-content>
+        </mat-card></div>
+        <div class="col w-auto">Column</div>
+      </div>
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-5 justify-content-center">
+        <div class="col w-auto">Column</div>
+        <div class="col w-auto">        
+          <div class="card" style="background-image: url('https://img.pokemondb.net/sprites/heartgold-soulsilver/normal/jirachi.png');">
+            <div class="card-body">
+              <p class="card-text">Jirachi</p>
+            </div>
+          </div>
+      </div>
+        <div class="col w-auto">        <mat-card class="w-100 h-100 bg-secondary">
+          <mat-card-content>Simple card</mat-card-content>
+        </mat-card></div>
+        <div class="col w-auto">        <mat-card class="w-100 h-100 bg-secondary">
+          <mat-card-content>Simple card</mat-card-content>
+        </mat-card></div>
+        <div class="col w-auto">Column</div>
       </div>
     </div>
   </mat-tab>
   <mat-tab label="Random Pokedoku">
-    <mat-grid-list cols="5" gutterSize=".1vw" class="container text-center rounded" style="width: 40vw">
-      <mat-grid-tile>1</mat-grid-tile>
+    <mat-grid-list cols="15" gutterSize=".1vw" class=" text-center rounded" >
+      <mat-grid-tile colspan="5">1</mat-grid-tile>
       <mat-grid-tile>        
         <mat-card>
           <mat-card-content>Type Eau</mat-card-content>
@@ -49,54 +85,77 @@
       </mat-grid-tile>
       <mat-grid-tile>1</mat-grid-tile>
       <mat-grid-tile>2</mat-grid-tile>
+      <mat-grid-tile colspan="5">2</mat-grid-tile>
+      <mat-grid-tile colspan="5">2</mat-grid-tile>
       <mat-grid-tile>
-        <mat-card>
+        <mat-card class="w-100 h-100 bg-secondary">
           <mat-card-content>Simple card</mat-card-content>
         </mat-card>
       </mat-grid-tile>
       <mat-grid-tile>
-        <mat-card>
+        <mat-card class="w-100 h-100 bg-secondary">
           <mat-card-content>Simple card</mat-card-content>
         </mat-card>
       </mat-grid-tile>
       <mat-grid-tile>
-        <mat-card>
+        <mat-card class="w-100 h-100 bg-secondary">
           <mat-card-content>Simple card</mat-card-content>
         </mat-card>
       </mat-grid-tile>
       <mat-grid-tile>Err 5</mat-grid-tile>
       <mat-grid-tile>1</mat-grid-tile>
+      <mat-grid-tile colspan="5">2</mat-grid-tile>
+      <mat-grid-tile colspan="5">2</mat-grid-tile>
       <mat-grid-tile>
-        <mat-card>
+        <mat-card class="w-100 h-100 bg-secondary">
           <mat-card-content>Simple card</mat-card-content>
         </mat-card>
       </mat-grid-tile>
       <mat-grid-tile>
-        <mat-card>
+        <mat-card class="w-100 h-100 bg-secondary">
           <mat-card-content>Simple card</mat-card-content>
         </mat-card>
       </mat-grid-tile>
       <mat-grid-tile>
-        <mat-card>
+        <mat-card class="w-100 h-100 bg-secondary">
           <mat-card-content>Simple card</mat-card-content>
         </mat-card>
       </mat-grid-tile>
       <mat-grid-tile>00:24</mat-grid-tile>
       <mat-grid-tile>4</mat-grid-tile>
+      <mat-grid-tile colspan="5">2</mat-grid-tile>
+      <mat-grid-tile colspan="5">2</mat-grid-tile>
       <mat-grid-tile>
-        <mat-card>
+        <mat-card class="w-100 h-100 bg-secondary">
           <mat-card-content>Simple card</mat-card-content>
-        </mat-card></mat-grid-tile>
+        </mat-card>
+      </mat-grid-tile>
       <mat-grid-tile>
-        <mat-card>
+        <mat-card class="w-100 h-100 bg-secondary">
           <mat-card-content>Simple card</mat-card-content>
-        </mat-card></mat-grid-tile>
+        </mat-card>
+      </mat-grid-tile>
       <mat-grid-tile>
-        <mat-card>
+        <mat-card class="w-100 h-100 bg-secondary">
           <mat-card-content>Simple card</mat-card-content>
-        </mat-card></mat-grid-tile>
+        </mat-card>
+      </mat-grid-tile>
       <mat-grid-tile>4</mat-grid-tile>
+      <mat-grid-tile>4</mat-grid-tile>
+      <mat-grid-tile colspan="5">2</mat-grid-tile>
+
     </mat-grid-list>
+    TEST
   </mat-tab>
-  <mat-tab label="Custom Pokedoku"> </mat-tab>
+  <mat-tab label="Custom Pokedoku">
+    
+    <div class="card-group mx-auto justify-content-center " data-bs-theme="dark" style="margin-top:11vh;">
+
+    </div>
+  
+  
+  
+  
+  
+  </mat-tab>
 </mat-tab-group>
