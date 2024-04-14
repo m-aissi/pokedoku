@@ -9,3 +9,11 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   background-repeat: no-repeat;
   height: 100%;
 }
+
+.bg-gif {
+  min-height: 5vh; /* Adjust based on your content needs */
+  background-image: url('https://img.pokemondb.net/sprites/black-white/anim/normal/wailord.gif');
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
