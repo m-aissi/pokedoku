@@ -1,4 +1,5 @@
 /* @import "~@angular/material/prebuilt-themes/purple-green.css"; */
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
@@ -11,9 +12,35 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 }
 
 .bg-gif {
-  min-height: 5vh; /* Adjust based on your content needs */
-  background-image: url('https://img.pokemondb.net/sprites/black-white/anim/normal/wailord.gif');
-  background-size: contain;
+  
+  background-size:auto;
   background-position: center;
   background-repeat: no-repeat;
+  margin: .1em;
 }
+
+.text-bottom {
+  color: #fff; /* Set the text color */
+  text-align: center; /* Center the text horizontally */
+  background-color: rgba(0, 0, 0, 0.5); /* Optional: adds readability with a semi-transparent background */
+}
+.press-start {
+  font-family: "Press Start 2P", system-ui;
+  font-size: .5rem;
+}
+
+
+.span-border {
+  display: block; /* or inline-block */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.sudoku{
+    display: block; /* or inline-block */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
