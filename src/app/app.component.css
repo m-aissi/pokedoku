@@ -1,0 +1,10 @@
+mat-grid-tile{
+   background-size:auto;
+   background-position: center;
+   background-repeat: no-repeat;
+
+}
+
+.pkmn-tile{
+   background-color: rgba(131, 119, 119, 0.767);
+}

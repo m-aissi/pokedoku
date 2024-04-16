@@ -23,6 +23,10 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   color: #fff; /* Set the text color */
   text-align: center; /* Center the text horizontally */
   background-color: rgba(0, 0, 0, 0.5); /* Optional: adds readability with a semi-transparent background */
+  padding-left: .3rem;
+  padding-right: .3rem;
+  margin-bottom: .2rem;
+
 }
 .press-start {
   font-family: "Press Start 2P", system-ui;
