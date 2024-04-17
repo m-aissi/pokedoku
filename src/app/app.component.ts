@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-
+import { HostListener, OnInit, Renderer2, ElementRef } from '@angular/core';
+import { AfterViewInit } from '@angular/core';
 
 interface Pokemon {
   url: string;
@@ -14,27 +15,28 @@ interface Pokemon {
   styleUrl: './app.component.css'
 })
 
-export class AppComponent {
+export class AppComponent implements AfterViewInit {
+  containerWidth: string = '32rem';  // Default width
+
   title = 'pokedoku';
-  // on va declarer une variable de any qui sera un tableau de pokemon
   pokemons: any = [];
-  constructor() {
-    console.log('AppComponent constructor called');
-  }
+  constructor(private renderer: Renderer2, private el: ElementRef) {}
+
 
   ngOnInit() {
 
 
-    let link = "https://cdn.discordapp.com/attachments/776543561776365578/1229757729636352010/zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz.png?ex=6630d822&is=661e6322&hm=8ca46a48078501eb8c9a0d450c301a27e4da955e343f897e150ebad7e1bdca80&";
-    this.pokemons.push({url: 'https://cdn.discordapp.com/attachments/776543561776365578/1229942677785673788/eazezseaz.png?ex=66318461&is=661f0f61&hm=d3656c2b21eb8b470b78e062d4d5e7d10135c73bf43a8203687eec9476d8f6a9&', name: "Neos' Bakery", type: 'logo'});
+    let link = "assets/types/dragon.png";
+    let link2 = "assets/types/1st-evo.png";
+    this.pokemons.push({url: 'assets/logo2.png', name: "", type: 'logo'});
     this.pokemons.push({url: link , name: 'ivysaur', type: 'custom'});
     this.pokemons.push({url: link, name: 'venusaur', type: 'custom'});
-    this.pokemons.push({url: 'https://cdn.discordapp.com/attachments/776543561776365578/1229768798060544020/845415.png?ex=6630e271&is=661e6d71&hm=9f40aff8b7a9a428f1c7ac57a44c23384cff2a41158d9593f767eb3ca45fc4d2&', name: 'charmander', type: 'custom'});
+    this.pokemons.push({url: link2, name: 'charmander', type: 'custom'});
     this.pokemons.push({url: link, name: 'charmeleon', type: 'custom'});
     this.pokemons.push({url: 'https://play.pokemonshowdown.com/sprites/ani/kangaskhan-mega.gif', name: 'Mega Kangaskhan', type: 'fire'});
     this.pokemons.push({url: 'https://play.pokemonshowdown.com/sprites/ani-shiny/hitmonlee.gif', name: 'Hitmonlee', type: 'water'});
     this.pokemons.push({url: 'https://play.pokemonshowdown.com/sprites/ani-shiny/umbreon.gif', name: 'Umbreon', type: 'water'});
-    this.pokemons.push({url: 'https://cdn.discordapp.com/attachments/776543561776365578/1229768798060544020/845415.png?ex=6630e271&is=661e6d71&hm=9f40aff8b7a9a428f1c7ac57a44c23384cff2a41158d9593f767eb3ca45fc4d2&', name: 'blastoise', type: 'custom'});
+    this.pokemons.push({url: link2, name: 'blastoise', type: 'custom'});
     this.pokemons.push({url: 'https://play.pokemonshowdown.com/sprites/ani/crabominable.gif', name: 'Crabominable', type: 'bug'});
     this.pokemons.push({url: 'https://play.pokemonshowdown.com/sprites/ani-shiny/weavile.gif', name: 'Weavile', type: 'bug'});
     this.pokemons.push({url: 'https://play.pokemonshowdown.com/sprites/ani-shiny/snorlax.gif', name: 'Snorlax', type: 'bug  '});
@@ -42,19 +44,58 @@ export class AppComponent {
     this.pokemons.push({url: 'https://play.pokemonshowdown.com/sprites/ani/gengar.gif', name: 'Gengar', type: 'bug'});
     this.pokemons.push({url: 'https://play.pokemonshowdown.com/sprites/ani-shiny/jirachi.gif', name: 'Jirachi', type: 'bug'});
     this.pokemons.push({url: 'https://play.pokemonshowdown.com/sprites/ani/darkrai.gif', name: 'Darkrai', type: 'bug'});
-    
-
-
-    console.log('AppComponent ngOnInit called');
   }
 
-  ngOnDestroy() {
-    console.log('AppComponent ngOnDestroy called');
+  @HostListener('window:resize', ['$event'])
+  onResize(event: any) {
+    this.resizeContainer();
+
+    this.pokemons.forEach((pokemon: any, index: any) => {
+      this.setImageBackgroundSize(pokemon, index);
+    });
   }
 
-  ngOnChanges() {
-    console.log('AppComponent ngOnChanges called');
-  }
-
+  ngAfterViewInit() {
+    console.log('AppComponent ngOnViewInit called');
+    this.resizeContainer(); // dsdsdsds resize
+    this.pokemons.forEach((pokemon: any, index: any) => {
+      this.setImageBackgroundSize(pokemon, index);
+    });
   
+  }
+  resizeContainer() {
+    const remSize = parseFloat(getComputedStyle(document.documentElement).fontSize);
+    const windowWidthRem = window.innerWidth / remSize;
+
+    if (windowWidthRem < 32) {
+      this.containerWidth = `${windowWidthRem}rem`;
+    } else {
+      this.containerWidth = '32rem'; // Default width
+    }
+    const gridContainer = this.el.nativeElement.querySelector('.grid-container');
+    this.renderer.setStyle(gridContainer, 'width', this.containerWidth);
+  }
+  setImageBackgroundSize(pokemon :any, index: any) {
+    const img = new Image();
+    img.onload = () => {
+      // Get the tile element by ID
+      const tileElement = document.getElementById(`tile-${index}`);
+
+      // Check if tileElement is not null
+      if (tileElement) {
+        // Assume a fixed tile size (replace with your actual tile dimensions)
+        const tileWidth = tileElement.clientWidth;
+        const tileHeight = tileElement.clientHeight;
+
+        // If the image size is larger than the tile, set the background size to 'contain'
+        if (img.width > tileWidth || img.height > tileHeight) {
+          tileElement.style.backgroundSize = 'contain';
+        }
+        else{
+          tileElement.style.backgroundSize = 'auto';
+        }
+      }
+    };
+    img.src = pokemon.url;
+  }
 }

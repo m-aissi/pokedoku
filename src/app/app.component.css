@@ -4,7 +4,14 @@
    background-repeat: no-repeat;
 
 }
-
+.background-contain {
+   background-size: contain !important;
+ }
+ 
+ .background-auto {
+   background-size: auto !important;
+ }
+ 
 .pkmn-tile{
    background-color: rgba(131, 119, 119, 0.767);
 }
@@ -30,31 +37,62 @@
 .grid-container{
    width: 32rem;
 }
-@media screen and (max-width: 570px){
-   .grid-container{
-      width: 28rem;
-   }
-}
 
-@media screen and (max-width: 480px){
-   .grid-container{
-      width: 24rem;
-   }
-   mat-grid-tile{
-      background-size:contain;
-   }
-}
-
-
-@media screen and (max-width: 390px){
-   .grid-container{
-      width: 20rem;
-      
-   }
-}
-
-@media screen and (max-width: 340px){
-   .grid-container{
-      width: 16rem;
-   }
-}
+.d-flex.text-bottom.press-start.rounded {
+   overflow-wrap: break-word;  /* Ensures that long words can be broken and wrapped to the next line */
+   word-break: break-word;     /* May be used to ensure breakage between any two characters (good for very long strings without spaces) */
+ }
+ 
+ .cardPreviewImage{
+   object-fit: contain;
+   width: 100%; 
+   background-repeat: no-repeat;
+   height: 100%;
+ }
+ 
+ .bg-gif {
+   
+   background-size:auto;
+   background-position: center;
+   background-repeat: no-repeat;
+   margin: .1em;
+ }
+ 
+ .text-bottom {
+   color: #fff; /* Set the text color */
+   text-align: center; /* Center the text horizontally */
+   background-color: rgba(0, 0, 0, 0.5); /* Optional: adds readability with a semi-transparent background */
+   padding-left: .3rem;
+   padding-right: .3rem;
+   margin-bottom: .2rem;
+   width:min-content;
+   line-height: normal;
+   padding: .3rem;
+ 
+ }
+ .press-start {
+   font-family: "Press Start 2P", system-ui;
+   font-size: 50%;
+ }
+ .responsive-img {
+   max-width: 100%;  /* Make sure the image is never wider than its container */
+   height: auto;     /* Make the image's height adjust automatically to the width */
+   display: block;   /* Display block to remove any unwanted space below the image */
+ }
+ 
+ 
+ .span-border {
+   display: block; /* or inline-block */
+   white-space: nowrap;
+   overflow: hidden;
+   text-overflow: ellipsis;
+ }
+ 
+ .sudoku{
+     display: block; /* or inline-block */
+     white-space: nowrap;
+     overflow: hidden;
+     text-overflow: ellipsis;
+ }
+ 
+ 
