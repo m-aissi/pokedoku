@@ -2,8 +2,10 @@
    background-size:auto;
    background-position: center;
    background-repeat: no-repeat;
-
 }
+
+::ng-deep .mat-ink-bar {
+  background-color:#dfdbdb !important;}
 .background-contain {
    background-size: contain !important;
  }
@@ -15,11 +17,21 @@
 .pkmn-tile{
    background-color: rgba(131, 119, 119, 0.767);
 }
-
+.pkmn-tile:hover,.pkmn-tile:active{
+   background-color: rgba(170, 152, 152, 0.398);
+}
 #tile-0,#tile-1,#tile-2,#tile-3,#tile-4,#tile-8,#tile-12{
    background-size:contain;
    background-color: rgba(255, 255, 255, 0);
 }
+
+#tile-1,#tile-2,#tile-3,#tile-4,#tile-8,#tile-12{
+   background-image: none !important;
+}
+#tile-4,#tile-8,#tile-12{
+   align-self: center !important;
+}
+
 
 #tile-5{
    border-top-left-radius: 1rem 1rem;

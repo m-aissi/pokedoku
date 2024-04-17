@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { HostListener, OnInit, Renderer2, ElementRef } from '@angular/core';
 import { AfterViewInit } from '@angular/core';
+import { MatTabChangeEvent } from '@angular/material/tabs';
 
 interface Pokemon {
   url: string;
@@ -63,6 +64,14 @@ export class AppComponent implements AfterViewInit {
     });
   
   }
+  tabChanged = (tabChangeEvent: MatTabChangeEvent): void => {
+    console.log('tabChangeEvent => ', tabChangeEvent);
+    this.resizeContainer();
+    this.pokemons.forEach((pokemon: any, index: any) => {
+      this.setImageBackgroundSize(pokemon, index);
+    });
+}
+
   resizeContainer() {
     const remSize = parseFloat(getComputedStyle(document.documentElement).fontSize);
     const windowWidthRem = window.innerWidth / remSize;
