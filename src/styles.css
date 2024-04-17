@@ -26,6 +26,9 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   padding-left: .3rem;
   padding-right: .3rem;
   margin-bottom: .2rem;
+  width:min-content;
+  line-height: normal;
+  padding: .3rem;
 
 }
 .press-start {
