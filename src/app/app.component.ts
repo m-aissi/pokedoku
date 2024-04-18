@@ -2,9 +2,11 @@ import { devOnlyGuardedExpression } from '@angular/compiler';
 import { Component } from '@angular/core';
 import { HostListener, OnInit, Renderer2, ElementRef } from '@angular/core';
 import { AfterViewInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { MatTabChangeEvent } from '@angular/material/tabs';
+import { SearchPokemonComponent } from './search-pokemon/search-pokemon.component';
 
-interface Pokemon {
+export interface Pokemon {
   url: string;
   name: string;
   type: string;
@@ -22,9 +24,16 @@ export class AppComponent implements AfterViewInit {
 
   title = 'pokedoku';
   pokemons: any = [];
-  constructor(private renderer: Renderer2, private el: ElementRef) {}
 
+  constructor(private renderer: Renderer2, private el: ElementRef,public dialog: MatDialog) {}
 
+  openDialog(pokemon: { name: any; otherData: any; url: string; }): void {
+    this.dialog.open(SearchPokemonComponent, {
+      maxWidth: '90vw',
+      height: '50vh',
+      data: { name: pokemon.name, otherData: pokemon.otherData } // Pass data to the dialog here
+    });
+  }
   ngOnInit() {
 
 

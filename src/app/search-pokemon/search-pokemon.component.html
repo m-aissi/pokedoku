@@ -1,0 +1,17 @@
+<div class="container">
+    <input type="text" [(ngModel)]="filterValue" placeholder="Search Pokemon" class="form-control mx-auto mt-2" (input)="filterPokemonList()">
+
+  <ul style="overflow-y: auto;" class="list-group mx-auto mt-2">
+    <li *ngFor="let result of pokemonListFront" class="list-group-item mb-1 color-grey" >
+
+      <div class="d-flex justify-content-between">
+        <img src="{{result.url}}" 
+        class="img img-search  me-4" alt="Responsive image" >
+
+        <div class="my-auto press-start mx-auto" style="font-size:.6rem; color:white;text-align: center !important;">{{result.name}}</div>
+        <!-- on cree un btn angular material -->
+        <i class="bi bi-patch-plus-fill"></i>
+      </div>
+    </li>
+</ul>
+</div>

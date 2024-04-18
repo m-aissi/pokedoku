@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatDialogModule } from '@angular/material/dialog';
+import { FormsModule } from '@angular/forms'; // Import the FormsModule
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -11,9 +13,11 @@ import { MatCardModule } from '@angular/material/card';
 import {MatTabsModule} from '@angular/material/tabs';
 //on import mat icon 
 import {MatIconModule} from '@angular/material/icon';
+import { SearchPokemonComponent } from './search-pokemon/search-pokemon.component';
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    SearchPokemonComponent
   ],
   imports: [
     BrowserModule,
@@ -23,7 +27,9 @@ import {MatIconModule} from '@angular/material/icon';
     MatGridListModule,
     MatCardModule,
     MatTabsModule,
-    MatIconModule
+    MatIconModule,
+    MatDialogModule,
+    FormsModule
   ],
   providers: [
     provideAnimationsAsync()

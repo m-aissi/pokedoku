@@ -1,0 +1,19 @@
+.img-search{
+    width: 7vh;
+    height: 7vh;
+    object-fit: contain;
+    border-radius: 1em;
+}
+
+.color-grey{
+    background-color: rgba(148, 120, 120, 0.75);
+    border:none;
+
+}
+
+.span-border {
+    display: block; /* or inline-block */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
