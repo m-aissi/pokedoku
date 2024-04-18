@@ -3,6 +3,20 @@
    background-position: center;
    background-repeat: no-repeat;
 }
+.centered-and-offset {
+   position: relative; /* Or absolute, depending on your layout needs */
+   left: 50%; /* Center horizontally */
+   transform: translate(-50%, -50%); /* Adjust the positioning to truly center */
+   margin-left: -100px; /* Apply negative margin to offset to the left */
+   margin-top: -100px;  /* Apply negative margin to offset to the top */
+ }
+ 
+::ng-deep .mat-mdc-tab.mdc-tab--active .mdc-tab__text-label, .mat-mdc-tab-nav-bar  {
+   color: #b6b0dcc9 !important; 
+}
+/* --mdc-tab-indicator-active-indicator-color */
+::ng-deep .mat-ink-bar {
+   background-color:#ee2925 !important;}
 
 ::ng-deep .mat-ink-bar {
   background-color:#dfdbdb !important;}

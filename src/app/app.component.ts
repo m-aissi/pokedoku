@@ -75,14 +75,39 @@ export class AppComponent implements AfterViewInit {
   resizeContainer() {
     const remSize = parseFloat(getComputedStyle(document.documentElement).fontSize);
     const windowWidthRem = window.innerWidth / remSize;
-
+    let marginLeft= 0;
     if (windowWidthRem < 32) {
       this.containerWidth = `${windowWidthRem}rem`;
     } else {
-      this.containerWidth = '32rem'; // Default width
+      const tileElement = document.getElementById(`tile-0`);
+
+      // Add null check for tileElement
+      if (tileElement && windowWidthRem > 32 + (tileElement.clientWidth / remSize)/2) {
+        // on ajoute u  n margin left de - tileElement.clientWidth / remSize pour centrer le container
+        console.log('tileElement.clientWidth', tileElement.clientWidth);
+        for (let i = 0; i < this.pokemons.length; i++) {
+          // get by tile-i 
+          const test = this.el.nativeElement.querySelector(`#tile-${i}`);
+          let margin = (tileElement.clientWidth / remSize)/2;
+          this.renderer.setStyle(test, 'margin-left', `-${margin}rem`);
+        } 
+      }
+      else{
+        for (let i = 0; i < this.pokemons.length; i++) {
+          // get by tile-i 
+          const test = this.el.nativeElement.querySelector(`#tile-${i}`);
+          this.renderer.setStyle(test, 'margin-left', `0px`);
+        }
+      }
+
+      this.containerWidth = '32rem';
+     
     }
     const gridContainer = this.el.nativeElement.querySelector('.grid-container');
     this.renderer.setStyle(gridContainer, 'width', this.containerWidth);
+    if(marginLeft != 0){
+      this.renderer.setStyle(gridContainer, 'margin', `-${marginLeft}rem !important`);
+    }
   }
   setImageBackgroundSize(pokemon :any, index: any) {
     const img = new Image();

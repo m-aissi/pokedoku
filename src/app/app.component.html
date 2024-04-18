@@ -10,7 +10,7 @@
     <mat-grid-list cols="4" rowHeight="1:1" gutterSize="1px" class="mx-3 mt-4">
       <!-- on va faire une boucle for sur pokemons -->
       <mat-grid-tile *ngFor="let pokemon of pokemons; let index = index" 
-      class="pkmn-tile tile" style="background-image: url({{pokemon.url}});" id="tile-{{index}}" 
+      class="pkmn-tile tile " style="background-image: url({{pokemon.url}});" id="tile-{{index}}" 
       >
         <!-- if the type is custom class should be self-align-center else self align end -->
         <div *ngIf="pokemon.type !== 'custom' && pokemon.type !=='logo' " class="d-flex text-bottom align-self-end press-start rounded w-auto">
@@ -21,22 +21,5 @@
 
     </mat-grid-list>
   </div>
-</mat-tab>
-<mat-tab label="Random Pokedoku"  >
-  <div class="mx-auto h-auto grid-container" style=" height: 100%;">
-  <mat-grid-list cols="4" rowHeight="1:1" gutterSize="1px" class="mx-3 mt-4">
-    <!-- on va faire une boucle for sur pokemons -->
-    <mat-grid-tile *ngFor="let pokemon of pokemons; let index = index" 
-    class="pkmn-tile tile" style="background-image: url({{pokemon.url}});" id="tile-{{index}}" 
-    >
-      <!-- if the type is custom class should be self-align-center else self align end -->
-      <div *ngIf="pokemon.type !== 'custom' && pokemon.type !=='logo' " class="d-flex text-bottom align-self-end press-start rounded w-auto">
-        {{pokemon.name}}   
-      </div>
-      <img *ngIf="pokemon.type === 'custom'" src="assets/types/dragon-cropped.png" class="img-fluid align-self-end" alt="Responsive image">
-    </mat-grid-tile>
-
-  </mat-grid-list>
-</div>
 </mat-tab>
 </mat-tab-group>
