@@ -1,3 +1,4 @@
+import { devOnlyGuardedExpression } from '@angular/compiler';
 import { Component } from '@angular/core';
 import { HostListener, OnInit, Renderer2, ElementRef } from '@angular/core';
 import { AfterViewInit } from '@angular/core';
@@ -71,28 +72,42 @@ export class AppComponent implements AfterViewInit {
       this.setImageBackgroundSize(pokemon, index);
     });
 }
-
+  isTileAlignEnd(index: number) {
+    switch (index) {
+      case 1:
+        return true;
+      case 3:
+        return true;
+      case 2:
+        return true;
+    }
+    return false;
+  }
   resizeContainer() {
+    console.log('resizeContainer called');
     const remSize = parseFloat(getComputedStyle(document.documentElement).fontSize);
     const windowWidthRem = window.innerWidth / remSize;
     let marginLeft= 0;
     if (windowWidthRem < 32) {
       this.containerWidth = `${windowWidthRem}rem`;
+      for (let i = 0; i < this.pokemons.length; i++) {
+        // get by tile-i 
+        const test = this.el.nativeElement.querySelector(`#tile-${i}`);
+        this.renderer.setStyle(test, 'margin-left', `0px`);
+      }
     } else {
       const tileElement = document.getElementById(`tile-0`);
 
       // Add null check for tileElement
-      if (tileElement && windowWidthRem > 32 + (tileElement.clientWidth / remSize)/2) {
+      if (tileElement && windowWidthRem > 32 + ((tileElement.clientWidth / remSize)+2)/2)  {
         // on ajoute u  n margin left de - tileElement.clientWidth / remSize pour centrer le container
-        console.log('tileElement.clientWidth', tileElement.clientWidth);
         for (let i = 0; i < this.pokemons.length; i++) {
           // get by tile-i 
           const test = this.el.nativeElement.querySelector(`#tile-${i}`);
           let margin = (tileElement.clientWidth / remSize)/2;
           this.renderer.setStyle(test, 'margin-left', `-${margin}rem`);
         } 
-      }
-      else{
+      } else{
         for (let i = 0; i < this.pokemons.length; i++) {
           // get by tile-i 
           const test = this.el.nativeElement.querySelector(`#tile-${i}`);
