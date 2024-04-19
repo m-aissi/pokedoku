@@ -39,7 +39,7 @@ export class AppComponent implements AfterViewInit {
 
     let link = "assets/types/dragon.png";
     let link2 = "assets/types/1st-evo.png";
-    this.pokemons.push({url: 'assets/logo2.png', name: "", type: 'logo'});
+    this.pokemons.push({url: 'assets/a.png', name: "", type: 'logo'});
     this.pokemons.push({url: link , name: 'ivysaur', type: 'custom'});
     this.pokemons.push({url: link, name: 'venusaur', type: 'custom'});
     this.pokemons.push({url: link2, name: 'charmander', type: 'custom'});
@@ -55,6 +55,7 @@ export class AppComponent implements AfterViewInit {
     this.pokemons.push({url: 'https://play.pokemonshowdown.com/sprites/ani/gengar.gif', name: 'Gengar', type: 'bug'});
     this.pokemons.push({url: 'https://play.pokemonshowdown.com/sprites/ani-shiny/jirachi.gif', name: 'Jirachi', type: 'bug'});
     this.pokemons.push({url: 'https://play.pokemonshowdown.com/sprites/ani/darkrai.gif', name: 'Darkrai', type: 'bug'});
+
   }
 
   @HostListener('window:resize', ['$event'])
